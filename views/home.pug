@@ -1,0 +1,48 @@
+extends ./layout/index.pug 
+block content 
+    .container.mt-2
+        h1.text-center.mb-4 Sistema de impresión de etiquetas 
+        .row
+            .col-12.col-lg-3 
+                .label.p-1.d-block.mx-auto.mb-4
+                    .d-flex.justify-content-between.mb-2
+                        p.text-danger#lotePrev 
+                        p#brandPrev
+                    p.model.text-center.mb-2#modelPrev
+                    p.quality.text-center
+                        span#qualityPrev 
+                        span#qualityPrev2
+                form#formLabels
+                    input.form-control.mb-2#lote(type="text" placeholder="Lote" required autocomplete="off")
+                    input.form-control.mb-2#brand(type="text" placeholder="Marca" required autocomplete="off")
+                    input.form-control.mb-2#model(type="text" placeholder="Modelo" required autocomplete="off")
+                    select.form-control.mb-2#quality(required)
+                        option(value="") 
+                        option(value="GOLDEN") GOLDEN
+                        option(value="WHITE") WHITE
+                        option(value="BLACK") BLACK
+                        option(value="BLUE") BLUE
+                        option(value="PINK") PINK
+                        option(value="GREEN") GREEN
+                    select.form-control.mb-2#quality2(required)
+                        option(value="") 
+                        option(value="OLED") OLED
+                        option(value="IN-CELL") IN-CELL
+                        option(value="ORIGINAL") ORIGINAL
+                        option(value="COG") COG
+                        option(value="COF") COF
+                    input.form-control.mb-2#quantity(type="number" placeholder="Cantidad" min="1" required autocomplete="off") 
+                    button.btn.btn-primary.d-block.mx-auto(type="submit") Agregar 
+            .col-12.col-lg-9 
+                .table-responsive
+                    table.table.table-bordered
+                        thead
+                            tr.text-center
+                                th Lote
+                                th Marca
+                                th Modelo
+                                th Calidad
+                                th Cantidad
+                                th Borrar
+                        tbody#tableBody
+                button.btn.btn-primary.d-block.mx-auto#print Generar etiquetas
