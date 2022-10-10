@@ -14,12 +14,12 @@ router.post("/pdf", (req, res) => {
     //Dvidimos el objeto de 4 en 4 por dimensiones de la hoja.
     const labelsFormatted = [];
     labels.forEach((label) => {
-        console.log(label);
+        
         if (label.quantity > 6) {
             const { quantity } = label;
             let auxQuantity = parseInt(quantity / 6);
             let auxResidual = quantity % 6;
-            console.log(auxResidual);
+            
             for (let i = 0; i < auxQuantity; i++) {
                 labelsFormatted.push({
                     quantity: "6",
@@ -63,7 +63,7 @@ router.post("/pdf", (req, res) => {
             return console.log(err);
         }
         return res.status(200).json({
-            path: 'http://localhost:4000/labels/labels.pdf'
+            path: `${process.env.HOST}/labels/labels.pdf`
         });
     });
 });

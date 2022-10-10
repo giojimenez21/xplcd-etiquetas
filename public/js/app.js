@@ -133,7 +133,6 @@ btnPrint.addEventListener("click", async () => {
             });
             const data = await res.json();
             if(data) {
-                console.log(data);
                 window.open(data.path, "__blank");   
             }
             labels = [];
