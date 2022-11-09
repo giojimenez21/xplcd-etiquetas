@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const { router } = require('./routers/index.router');
 require('dotenv').config();
@@ -10,8 +11,8 @@ app.set('view engine', 'pug');
 
 app.use(express.json());
 
-app.use('/public',express.static('public'));
-app.use('/labels', express.static('labels'))
+app.use('/public',express.static(path.join(__dirname,'public')));
+app.use('/labels', express.static(path.join(__dirname,'labels')));
 
 app.use('/', router);
 
