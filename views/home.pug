@@ -4,18 +4,21 @@ block content
         h1.text-center.mb-4 Sistema de impresión de etiquetas 
         .row
             .col-12.col-lg-3 
-                .label.p-1.d-block.mx-auto.mb-4
-                    .d-flex.justify-content-between.mb-2
-                        p.text-danger#lotePrev 
-                        p#brandPrev
-                    p.model.text-center.mb-2#modelPrev
-                    p.quality.text-center
-                        span#qualityPrev 
-                        span#qualityPrev2
+                .d-flex.justify-content-center.mb-2 
+                    .label__container.p-1.d-flex.flex-column.justify-content-between
+                        p.text-center#noSeriePrev
+                        .d-flex.justify-content-between
+                            p.text-danger#lotePrev
+                            p#brandPrev 
+                        p.text-center#modelPrev
+                        p.font-italic.text-center
+                            span#qualityPrev 
+                            span#qualityPrev2
                 form#formLabels
+                    input.form-control.mb-2#noSerie(type="text" placeholder="No Serie" required autocomplete="off")
                     input.form-control.mb-2#lote(type="text" placeholder="Lote" required autocomplete="off")
                     input.form-control.mb-2#brand(type="text" placeholder="Marca" required autocomplete="off")
-                    input.form-control.mb-2#model(type="text" placeholder="Modelo" required autocomplete="off")
+                    input.form-control.mb-2#model(type="text" placeholder="Modelo" required autocomplete="off" maxlength="16")
                     select.form-control.mb-2#quality(required)
                         option(value="") 
                         option(value="GOLDEN") GOLDEN
@@ -38,6 +41,7 @@ block content
                     table.table.table-bordered
                         thead
                             tr.text-center
+                                th Serie
                                 th Lote
                                 th Marca
                                 th Modelo

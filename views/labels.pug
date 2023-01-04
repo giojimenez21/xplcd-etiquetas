@@ -8,7 +8,7 @@ block content
         }
 
         p {
-            margin: 0;
+            margin: 0px;
         }
 
         tr {
@@ -33,22 +33,25 @@ block content
             position: relative;
         }
 
+        .label__serie {
+            font-size: 10px;
+        }
 
-        .lable__t1 {
+        .label__t1 {
             color: red;
             position: absolute;
-            top: 5px;
+            top: 10px;
             left: 3px;
         }
 
-        .lable__t2 {
+        .label__t2 {
             position: absolute;
-            top: 5px;
+            top: 10px;
             right: 3px;
         }
 
         .label__model {
-            font-size: 14px;
+            font-size: 8px;
             margin-left: 3px;
             margin-right: 3px;
         }
@@ -66,36 +69,36 @@ block content
                 tr
                     while n < i.quantity
                         td
-                            .label__container  
-                                .mb-4
-                                    p.lable__t1 #{i.labelData.lote}
-                                    p.lable__t2 #{i.labelData.brand }
-                                p.label__model.text-center.mb-1 #{i.labelData.model}
+                            .label__container
+                                p.text-center.label__serie.mb-3 #{i.labelData.noSerie}  
+                                p.label__t1 #{i.labelData.lote}
+                                p.label__t2 #{i.labelData.brand }
+                                p.label__model.text-center.mb-2 #{i.labelData.model}
                                 p.label__quality.text-center
                                     case i.labelData.quality1
                                         when 'GOLDEN'
-                                                span(style="color: GOLD") #{i.labelData.quality1} - 
+                                            span(style="color: GOLD") #{i.labelData.quality1} - 
                                         when 'WHITE'
-                                                span(style="color: GRAY") #{i.labelData.quality1} - 
+                                            span(style="color: GRAY") #{i.labelData.quality1} - 
                                         when 'BLACK'
-                                                span(style="color: BLACK") #{i.labelData.quality1} - 
+                                            span(style="color: BLACK") #{i.labelData.quality1} - 
                                         when 'BLUE'
-                                                span(style="color: BLUE") #{i.labelData.quality1} - 
+                                            span(style="color: BLUE") #{i.labelData.quality1} - 
                                         when 'PINK'
-                                                span(style="color: PINK") #{i.labelData.quality1} - 
+                                            span(style="color: PINK") #{i.labelData.quality1} - 
                                         when 'GREEN'
-                                                span(style="color: GREEN") #{i.labelData.quality1} - 
+                                            span(style="color: GREEN") #{i.labelData.quality1} - 
                                     case i.labelData.quality2
                                         when 'OLED'
-                                                span(style="color: RED") #{i.labelData.quality2} 
+                                            span(style="color: RED") #{i.labelData.quality2} 
                                         when 'IN-CELL'
-                                                span(style="color: GREEN") #{i.labelData.quality2} 
+                                            span(style="color: GREEN") #{i.labelData.quality2} 
                                         when 'ORIGINAL'
-                                                span(style="color: BLACK") #{i.labelData.quality2} 
+                                            span(style="color: BLACK") #{i.labelData.quality2} 
                                         when 'COG'
-                                                span(style="color: PURPLE") #{i.labelData.quality2}
+                                            span(style="color: PURPLE") #{i.labelData.quality2}
                                         when 'COF'
-                                                span(style="color: BLUE") #{i.labelData.quality2}
+                                            span(style="color: BLUE") #{i.labelData.quality2}
                                 - n++
                     - n=0
 

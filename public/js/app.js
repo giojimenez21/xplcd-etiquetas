@@ -1,3 +1,4 @@
+const noSerie = document.querySelector("#noSerie");
 const lote = document.querySelector("#lote");
 const brand = document.querySelector("#brand");
 const model = document.querySelector("#model");
@@ -8,12 +9,17 @@ const formLabels = document.querySelector("#formLabels");
 const tableBody = document.querySelector("#tableBody");
 const btnPrint = document.querySelector("#print");
 
+const noSeriePrev = document.querySelector("#noSeriePrev");
 const lotePrev = document.querySelector("#lotePrev");
 const brandPrev = document.querySelector("#brandPrev");
 const modelPrev = document.querySelector("#modelPrev");
 const qualityPrev = document.querySelector("#qualityPrev");
 const qualityPrev2 = document.querySelector("#qualityPrev2");
 let labels = [];
+
+noSerie.addEventListener("input", (e) => {
+    noSeriePrev.innerHTML = noSerie.value;
+});
 
 lote.addEventListener("input", (e) => {
     lotePrev.innerHTML = lote.value;
@@ -62,6 +68,7 @@ quality2.addEventListener("change", (e) => {
 });
 
 const resetPreview = () => {
+    noSeriePrev.innerHTML = "";
     lotePrev.innerHTML = "";
     brandPrev.innerHTML = "";
     modelPrev.innerHTML = "";
@@ -76,6 +83,7 @@ formLabels.addEventListener("submit", (e) => {
         quantity: quantity.value,
         labelData: {
             id,
+            noSerie: noSerie.value,
             lote: lote.value,
             brand: brand.value,
             model: model.value,
@@ -87,6 +95,7 @@ formLabels.addEventListener("submit", (e) => {
 
     tableBody.innerHTML += `
         <tr>
+            <td>${noSerie.value}</td>
             <td>${lote.value}</td>
             <td>${brand.value}</td>
             <td>${model.value}</td>

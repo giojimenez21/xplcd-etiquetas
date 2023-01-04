@@ -24,6 +24,7 @@ router.post("/pdf", (req, res) => {
                 labelsFormatted.push({
                     quantity: "6",
                     labelData: {
+                        noSerie: label.labelData.noSerie,
                         brand: label.labelData.brand,
                         lote: label.labelData.lote,
                         model: label.labelData.model,
@@ -35,6 +36,7 @@ router.post("/pdf", (req, res) => {
             labelsFormatted.push({
                 quantity: auxResidual,
                 labelData: {
+                    noSerie: label.labelData.noSerie,
                     brand: label.labelData.brand,
                     lote: label.labelData.lote,
                     model: label.labelData.model,
